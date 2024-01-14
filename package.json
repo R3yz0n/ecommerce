@@ -6,13 +6,15 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "server":"nodemon backend/index.js",
-    "client":"yarn dev --prefix frontend",
-    "dev":"concurrently \"yarn server\"yarn dev\""
+    "server": "nodemon backend/index.js",
+    "client": "yarn  --cwd frontend client ",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "dependencies": {
     "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mongoose": "^8.0.4",
     "nodemon": "^3.0.2"
   }
 }

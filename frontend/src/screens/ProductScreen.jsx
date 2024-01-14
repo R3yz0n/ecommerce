@@ -1,24 +1,23 @@
-import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Navbar,
-  Nav,
-  InputGroup,
-  FormControl,
-  Button,
-  Card,
-  NavDropdown,
-} from "react-bootstrap";
+import axios from "axios";
+import React, { useCallback, useEffect, useState } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { products } from "../products";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
-  const product = products.find((product) => product._id === productId);
-  console.log(product);
+  const [product, setProduct] = useState();
+
+  const fetchProduct = useCallback(async () => {
+    const { data } = await axios.get(`/api/products/${productId}`);
+    // console.log(data);
+    setProduct(data);
+  }, []);
+
+  useEffect(() => {
+    fetchProduct();
+  }, [fetchProduct]);
+
   return (
     <>
       {/* Content */}
@@ -27,10 +26,11 @@ const ProductScreen = () => {
           <Row className="gx-5">
             <Col lg={6}>
               <div className="border rounded-4 mb-3 d-flex justify-content-center">
-                <a
+                <Link
                   data-fslightbox="mygalley"
                   className="rounded-4"
                   target="_blank"
+                  rel="noreferrer"
                   data-type="image"
                   href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp"
                 >
@@ -38,10 +38,10 @@ const ProductScreen = () => {
                     style={{ maxWidth: "100%", maxHeight: "100vh", margin: "auto" }}
                     className="rounded-4 fit"
                     // src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp"
-                    src={product.image}
+                    src={product?.image}
                     alt="Product"
                   />
-                </a>
+                </Link>
               </div>
 
               {/* simliar items list */}
@@ -68,10 +68,7 @@ const ProductScreen = () => {
             </Col>
             <Col lg={6}>
               <div className="ps-lg-3">
-                <h4 className="title text-dark">
-                  Quality Men's Hoodie for Winter, Men's Fashion <br />
-                  Casual Hoodie
-                </h4>
+                <h4 className="title text-dark">{product?.name}</h4>
                 <div className="d-flex flex-row my-3">
                   <div className="text-warning mb-1 me-2">
                     {[1, 2, 3, 4].map((index) => (
@@ -87,18 +84,12 @@ const ProductScreen = () => {
                 </div>
 
                 <div className="mb-3">
-                  <span className="h5">$75.99</span>
+                  <span className="h5">${product?.price}</span>
                   <span className="ms-2 text-muted text-decoration-line-through">$89.99</span>
                 </div>
 
                 <div className="mb-3">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam iaculis egestas
-                    laoreet. Etiam faucibus massa sed risus lacinia in vulputate dolor imperdiet.
-                    Curabitur pharetra, purus a commodo dignissim, sapien nulla tempus nisi, et
-                    varius nulla urna at arcu. Curabitur pharetra, purus a commodo dignissim, sapien
-                    nulla tempus nisi, et varius nulla urna at arcu.
-                  </p>
+                  <p>{product?.description}</p>
                 </div>
 
                 <div className="mb-3">
