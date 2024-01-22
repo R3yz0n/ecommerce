@@ -1,6 +1,5 @@
-export const products = [
+const products = [
   {
-    _id: "1",
     name: "Airpods wireless bluetooth headphone",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly. High-quality audio offering.",
@@ -13,7 +12,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/1.jpeg",
   },
   {
-    _id: "2",
     name: "Samsung Galaxy S21",
     description:
       "Powerful smartphone with a stunning display, advanced camera system, and fast performance.",
@@ -26,7 +24,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/2.jpeg",
   },
   {
-    _id: "3",
     name: "Dell XPS 13 Laptop",
     description:
       "Ultra-portable laptop with a borderless InfinityEdge display and high-performance hardware.",
@@ -39,7 +36,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/3.jpeg",
   },
   {
-    _id: "4",
     name: "Sony WH-1000XM4 Wireless Headphones",
     description:
       "Industry-leading noise-canceling headphones with exceptional sound quality and comfort.",
@@ -52,7 +48,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/4.jpeg",
   },
   {
-    _id: "5",
     name: "Canon EOS 5D Mark IV Camera",
     description:
       "Professional-grade DSLR camera with a full-frame sensor, 4K video recording, and advanced autofocus.",
@@ -65,7 +60,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/5.jpeg",
   },
   {
-    _id: "6",
     name: "LG OLED C1 65-inch 4K TV",
     description:
       "Premium OLED TV with stunning picture quality, Dolby Vision, and webOS smart platform.",
@@ -78,7 +72,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/6.jpeg",
   },
   {
-    _id: "7",
     name: "Bose QuietComfort 35 II Wireless Headphones",
     description:
       "Comfortable over-ear headphones with excellent noise cancellation and impressive audio performance.",
@@ -91,7 +84,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/7.jpeg",
   },
   {
-    _id: "8",
     name: "Microsoft Surface Pro 7",
     description:
       "Versatile 2-in-1 laptop with a detachable keyboard, touch screen, and powerful processing.",
@@ -104,7 +96,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/8.jpeg",
   },
   {
-    _id: "9",
     name: "Fitbit Charge 4 Fitness Tracker",
     description:
       "Advanced fitness tracker with built-in GPS, heart rate monitoring, and sleep tracking.",
@@ -117,7 +108,6 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/9.jpeg",
   },
   {
-    _id: "10",
     name: "KitchenAid Stand Mixer",
     description:
       "Powerful stand mixer for baking and cooking, with various attachments for versatile use.",
@@ -130,3 +120,5 @@ export const products = [
     image: "https://api.slingacademy.com/public/sample-photos/10.jpeg",
   },
 ];
+
+export default products;
