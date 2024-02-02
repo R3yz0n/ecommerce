@@ -8,10 +8,15 @@
     "start": "node index.js",
     "server": "nodemon backend/index.js",
     "client": "yarn  --cwd frontend client ",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "data:import": "node backend/seeders.js",
+    "data:destroy": "node backend/seeders.js -d"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
     "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.4",

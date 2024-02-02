@@ -6,8 +6,9 @@ import Product from "../models/productModel.js";
 // @access Public
 const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({});
-  res.status(404);
-  throw new Error("fuck u");
+  // res.status(401);
+
+  // throw new Error("some error");
 
   res.json(products);
 });

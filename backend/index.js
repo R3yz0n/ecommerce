@@ -1,24 +1,26 @@
 import express from "express";
 import dotenv from "dotenv";
-import { products } from "./data/products.js";
 import connectToDB from "./config/db.js";
+import productRoutes from "./routes/productRoutes.js";
+import { errorHandler, routeNotFound } from "./middleware/errorHandler.js";
+import cors from "cors";
 
 dotenv.config();
-
-console.log(process.env.NODE_ENV);
 const port = process.env.PORT || 4000;
 const server = express();
+const corsOptions = {
+  origin: "http://localhost:3000",
+  //   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  //   credentials: true, // enable set cookie
+};
+server.use(cors(corsOptions));
 
-server.get("/api/products", (req, res) => {
-  // how to send only 10 products
-  // how to send only 10 products
-  res.json(products);
-});
+server.use("/api/products", productRoutes);
 
-server.get("/api/products/:id", (req, res) => {
-  const product = products.find((products) => products._id === req.params.id);
-  res.json(product);
-});
+server.use(routeNotFound);
+server.use(errorHandler);
 
 server.listen(port, () => console.log("SERVER is running on port", port));
+[...Array(10)].forEach(() => console.log());
+
 connectToDB();
