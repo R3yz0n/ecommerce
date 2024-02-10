@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardImg, CardText, CardTitle } from "react-bootstrap";
+import { Card, CardBody, CardImg, CardText, CardTitle, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
 
