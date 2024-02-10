@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { Container, Row, Col, Button, ListGroupItem, ListGroup, Form } from "react-bootstrap";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useGetProductDetailsQuery, useGetProductsQuery } from "../store/slices/productApiSlice";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/slices/cartSlice";
@@ -10,11 +10,14 @@ import { addToCart } from "../store/slices/cartSlice";
 const ProductScreen = () => {
   const { id: productId } = useParams();
   const [qty, setQty] = useState(1);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { data: product, error, isLoading } = useGetProductDetailsQuery(productId);
   // console.log(error);
   const handleAddTocart = () => {
-    dispatch(addToCart({ ...product }));
+    console.log(product);
+    dispatch(addToCart({ ...product, qty }));
+    // navigate("/cart");
   };
   return (
     <>
