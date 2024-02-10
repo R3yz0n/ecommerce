@@ -9,7 +9,7 @@ const getProducts = asyncHandler(async (req, res) => {
   // res.status(401);
 
   // throw new Error("some error");
-
+  console.log("-----------------------  ");
   res.json(products);
 });
 
@@ -18,10 +18,10 @@ const getProducts = asyncHandler(async (req, res) => {
 // @access Public
 const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
-  if (product) return res.json(product);
-  else {
-    // res.status(404);
-    throw new Error("no foud");
+  if (product) {
+    res.status(201);
+    res.cookie("jwt", "sss");
+    return res.json(product);
   }
 });
 
