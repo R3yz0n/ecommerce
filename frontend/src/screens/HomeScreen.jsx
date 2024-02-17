@@ -10,7 +10,7 @@ const HomeScreen = () => {
       {isLoading ? (
         <>Loadiing</>
       ) : error ? (
-        <>{error?.data.message || error.error}</>
+        <>{error?.data?.message || error.error}</>
       ) : (
         <Row className="">
           {data?.map((product) => (
