@@ -10,7 +10,9 @@ import session from "express-session";
 import passport from "passport";
 import "./middleware/passport.js";
 import authRoutes from "./routes/authRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 dotenv.config();
+
 const port = process.env.PORT || 4000;
 const server = express();
 
@@ -33,6 +35,7 @@ server.use(passport.session());
 server.use("/api/products", productRoutes);
 server.use("/api/users", userRoutes);
 server.use("/api/auth", authRoutes);
+server.use("/api/order", orderRoutes);
 
 server.use(routeNotFound);
 server.use(errorHandler);
