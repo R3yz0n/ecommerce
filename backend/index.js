@@ -35,7 +35,7 @@ server.use(passport.session());
 server.use("/api/products", productRoutes);
 server.use("/api/users", userRoutes);
 server.use("/api/auth", authRoutes);
-server.use("/api/order", orderRoutes);
+server.use("/api/orders", orderRoutes);
 
 server.use(routeNotFound);
 server.use(errorHandler);
