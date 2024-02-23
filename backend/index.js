@@ -36,6 +36,9 @@ server.use("/api/products", productRoutes);
 server.use("/api/users", userRoutes);
 server.use("/api/auth", authRoutes);
 server.use("/api/orders", orderRoutes);
+server.use("/api/config/paypal", (req, res) =>
+  res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
+);
 
 server.use(routeNotFound);
 server.use(errorHandler);
