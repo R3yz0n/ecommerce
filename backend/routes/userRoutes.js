@@ -17,7 +17,10 @@ const router = express.Router();
 router.route("/").post(registerUser).get(tokenVerification, adminVerification, getUsers);
 router.post("/logout", logoutUser);
 router.post("/login", authUser);
-router.route("/profile").get(tokenVerification, getUserProfile).put(updateUserProfile);
+router
+  .route("/profile")
+  .get(tokenVerification, getUserProfile)
+  .put(tokenVerification, updateUserProfile);
 router
   .route("/:id")
   .delete(deleteUser)
