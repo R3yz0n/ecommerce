@@ -6,7 +6,6 @@ import User from "../models/userModel.js";
 
 const tokenVerification = asyncHandler(async (req, res, next) => {
   let token = req.cookies.jwt;
-  console.log(token);
   if (token) {
     try {
       console.log("---------  ");
