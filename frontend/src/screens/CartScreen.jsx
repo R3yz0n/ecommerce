@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../store/slices/cartSlice";
+import { useGetOrderDetailsQuery } from "../store/slices/ordersApiSlice";
+import { useGetProductDetailsQuery } from "../store/slices/productApiSlice";
 const CartScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
   console.log(cartItems);
-
+  const { data: product, error, isLoading } = useGetProductDetailsQuery("65d8ad82bb693d5c8facee99");
   const addToCartHandler = async (product, qty) => {
     dispatch(addToCart({ ...product, qty }));
   };
@@ -19,7 +21,7 @@ const CartScreen = () => {
   };
   //confusing
   const checkoutHandler = () => {
-    navigate("/login?redirect=shipping");
+    navigate("/login?redirect=/shipping");
   };
 
   return (

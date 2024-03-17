@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../store/slices/userApiSlice";
 import { setCredentials } from "../store/slices/authSlice";
 import { toast } from "react-toastify";
-import axios from "axios";
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -28,6 +27,7 @@ const LoginScreen = () => {
   }, [userInfo, redirect, navigate]);
   const submitHandler = async (e) => {
     e.preventDefault();
+
     try {
       const res = await login({ email, password }).unwrap();
 
