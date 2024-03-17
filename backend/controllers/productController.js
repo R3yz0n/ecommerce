@@ -20,7 +20,7 @@ const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
     res.status(201);
-    res.cookie("jwt", "sss");
+
     return res.json(product);
   }
 });
