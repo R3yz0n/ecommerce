@@ -27,8 +27,6 @@ const registerUser = asyncHandler(async (req, res) => {
       throw new Error("Invalid user data");
     }
   }
-
-  res.send("auth users");
 });
 
 // @desc   Logout user / clear cookie
